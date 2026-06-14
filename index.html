@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do App</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="app-title">📝 My To-Do App</h1>
+    <p class="app-subtitle">Stay organized. Stay productive.</p>
+  </header>
+
+  <main class="container">
+
+    <section class="add-task-section">
+      <h2 class="section-heading">Add New Task</h2>
+      <div class="input-group">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Enter your task here..."
+          maxlength="100"
+        />
+        <button id="addTaskBtn" onclick="addTask()">+ Add Task</button>
+      </div>
+      <p id="errorMsg" class="error-msg"></p>
+    </section>
+
+    <div class="summary-bar">
+      <div class="badge badge-total">
+        Total: <span id="totalCount">0</span>
+      </div>
+      <div class="badge badge-pending">
+        Pending: <span id="pendingCount">0</span>
+      </div>
+      <div class="badge badge-completed">
+        Completed: <span id="completedCount">0</span>
+      </div>
+    </div>
+
+    <section class="task-section">
+      <div class="section-header">
+        <h2 class="section-heading pending-heading">
+          🕐 Pending Tasks
+        </h2>
+      </div>
+
+      <div id="pendingEmpty" class="empty-state">
+        <p>🎉 No pending tasks! Add a new task above.</p>
+      </div>
+
+      <ul id="pendingList" class="task-list"></ul>
+    </section>
+
+    <section class="task-section">
+      <div class="section-header">
+        <h2 class="section-heading completed-heading">
+          ✅ Completed Tasks
+        </h2>
+        <button
+          id="clearCompletedBtn"
+          class="clear-btn"
+          onclick="clearAllCompleted()"
+        >
+          Clear All
+        </button>
+      </div>
+
+      <div id="completedEmpty" class="empty-state">
+        <p>No completed tasks yet. Mark a task as done!</p>
+      </div>
+
+      <ul id="completedList" class="task-list"></ul>
+    </section>
+
+  </main>
+
+  <div id="editModal" class="modal-overlay">
+    <div class="modal-box">
+      <h3 class="modal-title">✏️ Edit Task</h3>
+      <input type="text" id="editInput" class="modal-input"
+             placeholder="Update your task..." maxlength="100"/>
+      <div class="modal-buttons">
+        <button onclick="saveEdit()" class="btn-save">Save</button>
+        <button onclick="closeModal()" class="btn-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Made with ❤️ | Oasis Infobyte Web Development Internship — Task 3</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
